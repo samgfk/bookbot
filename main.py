@@ -1,4 +1,4 @@
-
+"""
 def get_books_text(file_path):
     #A with block can be used to open a file
 
@@ -26,10 +26,9 @@ def main():
 
 
 main()
-
 """
-Bootdev's solution so far compared.
-
+#Bootdev's solution so far compared. Any edits after 9:36 on 7/23 are my own.
+from stats import get_num_words
 
 def main():
     book_path = "books/frankenstein.txt"
@@ -43,10 +42,7 @@ def get_book_text(path):
         return f.read()
 
 
-def get_num_words(text):
-    words = text.split()
-    return len(words)
 
 
 main()
-"""
+
