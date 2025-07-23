@@ -6,13 +6,47 @@ def get_books_text(file_path):
         #use the .read() method to read the contents of a file into a string
 
         book_text = f.read()
-        return print(book_text)
+        return book_text
+
+#TO DO: Write a new function that accepts the text from the book as a string, and returns the number of words in the string. 
+##The .split() method will be helpful here. 
+##Message on console should be like {num_words} words found in the document
+def num_of_words(file_path):
+    text = get_books_text(file_path)
+    words = text.split()
+    word_count = 0
+    for word in words:
+        word_count += 1
+    return print(f"{word_count} words found in the document")
 
 def main():
     get_books_text("./books/frankenstein.txt")
+    num_of_words("./books/frankenstein.txt")
     return 0
 
 
 main()
 
+"""
+Bootdev's solution so far compared.
 
+
+def main():
+    book_path = "books/frankenstein.txt"
+    text = get_book_text(book_path)
+    num_words = get_num_words(text)
+    print(f"{num_words} words found in the document")
+
+
+def get_book_text(path):
+    with open(path) as f:
+        return f.read()
+
+
+def get_num_words(text):
+    words = text.split()
+    return len(words)
+
+
+main()
+"""
