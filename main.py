@@ -28,13 +28,25 @@ def main():
 main()
 """
 #Bootdev's solution so far compared. Any edits after 9:36 on 7/23 are my own.
-from stats import get_num_words
+from stats import get_num_words, char_occurences, sorted_list_of_dicts
 
 def main():
+    
     book_path = "books/frankenstein.txt"
     text = get_book_text(book_path)
     num_words = get_num_words(text)
-    print(f"{num_words} words found in the document")
+    unsorted = char_occurences(text)
+    sld = sorted_list_of_dicts(unsorted)
+
+    print(f"============ BOOKBOT ============",
+          f"Analyzing book found at {book_path}...",
+          "----------- Word Count ----------",
+          f"Found {num_words} total words",
+          "--------- Character Count -------",
+          
+          *(f"{list(item.keys())[0]}: {list(item.values())[0]}" for item in sld),
+          "============= END ===============",
+    sep ="\n")
 
 
 def get_book_text(path):
