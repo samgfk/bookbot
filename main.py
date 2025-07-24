@@ -29,10 +29,12 @@ main()
 """
 #Bootdev's solution so far compared. Any edits after 9:36 on 7/23 are my own.
 from stats import get_num_words, char_occurences, sorted_list_of_dicts
-
+import sys
 def main():
-    
-    book_path = "books/frankenstein.txt"
+    if len(sys.argv) != 2:
+        print('Usage: python3 main.py <path_to_book>')
+        sys.exit(1)
+    book_path = sys.argv[1]  # Get the book path from command line arguments
     text = get_book_text(book_path)
     num_words = get_num_words(text)
     unsorted = char_occurences(text)
